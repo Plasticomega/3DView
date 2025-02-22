@@ -1,0 +1,21 @@
+
+
+.buttons{
+    display: flex;
+    margin-top: 10px;
+    justify-self: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+#darkmode,#btn{
+    font-size: 22px;
+    background-color: hsl(199, 94%, 51%);
+    color: white;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+
