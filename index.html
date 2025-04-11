@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STL Viewer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/STLLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STL Viewer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/STLLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/controls/OrbitControls.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/OBJLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/PLYLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/MTLLoader.js"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body style="margin: 0; overflow: hidden; background-color: #f0f0f0;">
-    <div class="buttons">
-      <button id="btn">Next model</button>
-      <button id="darkmode">Color mode</button>
-    </div>
-    <script src="script.js"></script>
+  <div class="buttons">
+    <button id="darkmode">Color mode</button>
+    <button id="select-file">Select STL File</button>
+  </div>
+  <div id="drop-area">
+    Drag and drop your STL file here
+  </div>
+  <input type="file" id="file-input" hidden multiple accept=".obj,.mtl,.jpg,.jpeg,.png,.stl,.gltf,.glb,.ply">
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-

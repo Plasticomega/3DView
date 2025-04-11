@@ -1,21 +1,52 @@
-
-
-.buttons{
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  
+  .buttons {
     display: flex;
-    margin-top: 10px;
-    justify-self: center;
-    padding: 10px;
     gap: 10px;
-}
-
-#darkmode,#btn{
-    font-size: 22px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+  }
+  
+  #darkmode, #select-file {
+    font-size: 18px;
+    font-weight: 700;
     background-color: hsl(199, 94%, 51%);
     color: white;
-    font-weight: 700;
     border-radius: 10px;
     padding: 10px;
-}
-
-
-
+    border: none;
+    cursor: pointer;
+  }
+  
+  #drop-area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 300px;
+    border: 3px dashed #ccc;
+    text-align: center;
+    line-height: 300px;
+    font-size: 22px;
+    color: #555;
+    background-color: white;
+    border-radius: 20px;
+    z-index: 5;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #drop-area.drag-over {
+    background-color: #0077ff;
+    color: white;
+  }
+  
