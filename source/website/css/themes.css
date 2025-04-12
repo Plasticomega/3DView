@@ -1,0 +1,56 @@
+:root
+{
+    --ov_foreground_color: #ebdbb2;
+    --ov_background_color: #282828;
+    --ov_disabled_foreground_color: #7c6f64;
+    --ov_button_color: #98971a;
+    --ov_button_hover_color: #b8bb26;
+    --ov_button_text_color: #282828;
+    --ov_outline_button_color: #d79921;
+    --ov_outline_button_hover_color: #fabd2f;
+    --ov_outline_button_text_color: #d79921;
+    --ov_icon_color: #fbf1c7;
+    --ov_light_icon_color: #a89984;
+    --ov_selected_icon_color: #fe8019;
+    --ov_disabled_icon_color: #665c54;
+    --ov_hover_color: #3c3836;
+    --ov_hover_text_color: #fabd2f;
+    --ov_logo_text_color: #fabd2f;
+    --ov_logo_border_color: #928374;
+    --ov_toolbar_background_color: #3c3836;
+    --ov_toolbar_selected_color: #504945;
+    --ov_toolbar_separator_color: #665c54;
+    --ov_treeview_selected_color: #504945;
+    --ov_dialog_foreground_color: #ebdbb2;
+    --ov_dialog_background_color: #1d2021;
+    --ov_dialog_control_border_color: #504945;
+    --ov_border_color: #665c54;
+    --ov_shadow: 0px 0px 10px #1d2021;
+
+    --ov_foreground_color_dark: #fbf1c7;
+    --ov_background_color_dark: #1d2021;
+    --ov_disabled_foreground_color_dark: #928374;
+    --ov_button_color_dark: #98971a;
+    --ov_button_hover_color_dark: #b8bb26;
+    --ov_button_text_color_dark: #1d2021;
+    --ov_outline_button_color_dark: #fabd2f;
+    --ov_outline_button_hover_color_dark: #d79921;
+    --ov_outline_button_text_color_dark: #fabd2f;
+    --ov_icon_color_dark: #fbf1c7;
+    --ov_light_icon_color_dark: #a89984;
+    --ov_selected_icon_color_dark: #fe8019;
+    --ov_disabled_icon_color_dark: #665c54;
+    --ov_hover_color_dark: #504945;
+    --ov_hover_text_color_dark: #fabd2f;
+    --ov_logo_text_color_dark: #fbf1c7;
+    --ov_logo_border_color_dark: #3c3836;
+    --ov_toolbar_background_color_dark: #3c3836;
+    --ov_toolbar_selected_color_dark: #504945;
+    --ov_toolbar_separator_color_dark: #665c54;
+    --ov_treeview_selected_color_dark: #3c3836;
+    --ov_dialog_foreground_color_dark: #ebdbb2;
+    --ov_dialog_background_color_dark: #282828;
+    --ov_dialog_control_border_color_dark: #504945;
+    --ov_border_color_dark: #928374;
+    --ov_shadow_dark: 0px 0px 10px #1d2021;
+}
