@@ -46,44 +46,39 @@ controls.zoomSpeed = 1.2;
 
 // Load model from file or drag
 function handleFileList(files) {
-    const fileMap = {};
-    for (const file of files) {
-      fileMap[file.name.toLowerCase()] = file;
-    }
-  
-    const objFile = Array.from(files).find(f => f.name.toLowerCase().endsWith(".obj"));
-    if (!objFile) return alert("No OBJ file found.");
-  
+  const fileMap = {};
+  for (const file of files) {
+    fileMap[file.name.toLowerCase()] = file;
+  }
+
+  // First, try to load OBJ + MTL
+  const objFile = Array.from(files).find(f => f.name.toLowerCase().endsWith(".obj"));
+  if (objFile) {
     const baseName = objFile.name.toLowerCase().replace(".obj", "");
     const mtlFile = fileMap[baseName + ".mtl"];
-  
+
     if (mtlFile) {
       const mtlReader = new FileReader();
       mtlReader.onload = function (e) {
         const mtlLoader = new THREE.MTLLoader();
-  
         const materials = mtlLoader.parse(e.target.result);
         materials.preload();
-  
-        // ✅ Force replace texture loading with Blob URLs from fileMap
+
+        // Load associated textures if present
         for (const matName in materials.materials) {
           const material = materials.materials[matName];
-  
           if (material.map_Kd) {
             const textureFileName = material.map_Kd.trim().toLowerCase();
             const texFile = fileMap[textureFileName];
-  
             if (texFile) {
               const blobURL = URL.createObjectURL(texFile);
               material.map = new THREE.TextureLoader().load(blobURL);
               material.map.flipY = false;
               material.needsUpdate = true;
-            } else {
-              console.warn("Texture file not found in selected files:", textureFileName);
             }
           }
         }
-  
+
         const objReader = new FileReader();
         objReader.onload = function (ev) {
           const objLoader = new THREE.OBJLoader();
@@ -95,8 +90,9 @@ function handleFileList(files) {
         objReader.readAsText(objFile);
       };
       mtlReader.readAsText(mtlFile);
+      return;
     } else {
-      // 🔁 Fallback: no MTL file
+      // Load .obj without .mtl
       const reader = new FileReader();
       reader.onload = function (e) {
         const objLoader = new THREE.OBJLoader();
@@ -105,9 +101,26 @@ function handleFileList(files) {
         dropArea.style.display = 'none';
       };
       reader.readAsText(objFile);
+      return;
     }
-
   }
+
+  // ✅ Try STL if no OBJ found
+  const stlFile = Array.from(files).find(f => f.name.toLowerCase().endsWith(".stl"));
+  if (stlFile) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const geometry = new THREE.STLLoader().parse(e.target.result);
+      displayModel(geometry);
+      dropArea.style.display = 'none';
+    };
+    reader.readAsArrayBuffer(stlFile);
+    return;
+  }
+
+  alert("No supported file found. Please upload .obj or .stl.");
+}
+
   
   
   
@@ -235,6 +248,10 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+
+
+
 
 
 
